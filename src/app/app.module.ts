@@ -12,7 +12,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { EmployeesComponent } from './employees/employees.component'
+import { EmployeesComponent } from './employees/employees.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { ProductCreateComponent } from './products/product-create/product-create.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { EmployeesComponent } from './employees/employees.component'
     LoginComponent,
     ProductsComponent,
     CategoriesComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    ProductDetailComponent,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,

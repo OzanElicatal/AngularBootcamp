@@ -30,6 +30,11 @@ export class ProductsComponent implements OnInit {
     this._productservice.getProductList().subscribe(data => this.products = data);
   }
 
+  addToList($event: any, products: IProducts){
+    console.log(products);
+
+  }
+
 
 
 }
