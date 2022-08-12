@@ -21,6 +21,8 @@ export class ProductsComponent implements OnInit {
     stock: 0
   }
 
+  filterText: string= "";
+
   constructor(private _productservice: ProductssService) { 
   }
 
