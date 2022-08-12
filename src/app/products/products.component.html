@@ -1,20 +1,35 @@
 <div class="container">
-    <section class="my-5 col-md-4" style="max-width: 23rem;">
-        
-      <div class="card">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" class="img-fluid" />
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </a>
+  <div class="row">
+    <div class="container col-md-4">
+      <form class="row my-2">
+        <input class="col-md-8" type="search" placeholder="Search" aria-label="Search">
+        <button class="col-md-4 btn btn-outline-warning" type="submit">Search</button>
+      </form>
+  
+    </div>
+    <div class="col-md-4">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, dicta sunt. Accusamus impedit reprehenderit, quisquam quos aperiam molestiae, architecto quam, a dolor dicta officiis quas quis saepe aliquid quasi. In.</p>
+    </div>
+    <div class="col-md-4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum pariatur iusto et eos, accusamus distinctio dolores perspiciatis tempore necessitatibus beatae reprehenderit soluta qui architecto sapiente aliquid, voluptas animi impedit nesciunt.
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row my-5 justify-content-center">
+      <div class="card mt-4" *ngFor="let item of products" style="max-width: 23rem; margin-right: 15px;">
+        <div class="bg-image" >
+          <img src="http://localhost:3030/api/products/images/{{item.id}}.jpg" class="img-fluid w-100 rounded" style="max-height: 15rem;" />
         </div>
         <div class="card-body">
-          <h5 class="card-title font-weight-bold"><a>Productname</a></h5>
-          <p class="mb-2">Price</p>
-          <p class="card-text">
-            DESCRİPTİON
-          </p>
+          <h5 class="card-title font-weight-bold text-center"><a>{{item.name}}</a></h5>
+          <div class="row">
+            <p class="mb-2 col-md-7" style="color: #B12704;">Price: {{item.price}} $</p>
+            <p class="col-md-5 ">Stock: {{item.stock}}</p>
+          </div>
+          
         </div>
       </div>
-    </section>
+    </div>
   </div>
