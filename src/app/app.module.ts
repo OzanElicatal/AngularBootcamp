@@ -14,7 +14,8 @@ import { ProductsComponent } from './products/products.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
-import { ProductCreateComponent } from './products/product-create/product-create.component'
+import { ProductCreateComponent } from './products/product-create/product-create.component';
+import { TranslateModule } from '@ngx-translate/core'
 
 @NgModule({
   declarations: [
@@ -34,9 +35,11 @@ import { ProductCreateComponent } from './products/product-create/product-create
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

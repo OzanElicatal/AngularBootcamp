@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProducts } from '../Models/iproducts';
 import { ProductssService } from '../services/productss.service';
-import { ProductRepository } from '../Models/product-repository';
 
 @Component({
   selector: 'app-products',
