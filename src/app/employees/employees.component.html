@@ -1,1 +1,61 @@
-<p>employees works!</p>
+<div class="container">
+  <div class="row mt-3">    
+  
+    <div class="col-md-4 offset-md-4 mt-2">
+      <input style="border: 1px solid #ffc107;" class="form-control" type="search" placeholder="Search.." aria-label="Search" [(ngModel)]="filterText">
+    </div>
+    <!--
+    <div class="col-md-4 text-center ">
+      <a routerLink="/product/create" style="font-size: 35px;color: black;"><i class="fa-solid fa-plus"></i></a>
+    </div> -->
+  </div>
+</div>
+
+<div class="container">
+    <div class="row my-5 justify-content-center">
+      <div class="card mt-4" *ngFor="let item of employees | filter:filterText" style="max-width: 23rem; margin-right: 15px;">
+        <div class="bg-image">
+          <div class="row">
+            <div class="col-8"><img src="http://localhost:3030/api/employees/images/{{item.id}}.jpg" class="img-fluid w-100 rounded" style="min-height: 15; max-height: 15rem;"/></div>
+            <div class="col-4">
+              <div *ngIf="item.title=== 'Sales Representative'" class="badge bg-warning text-wrap col-6" style="width: 7rem;;">
+                {{item.title}}
+              </div>
+              <div *ngIf="item.title=== 'Vice President, Sales'" class="badge bg-danger text-wrap col-6" style="width: 7rem;">
+                {{item.title}}
+              </div>
+              <div *ngIf="item.title=== 'Sales Manager'" class="badge bg-info text-center col-6"  style="width: 7rem;">
+                {{item.title}}
+              </div>
+              <div *ngIf="item.title=== 'Inside Sales Coordinator'" class="badge  bg-primary text-wrap col-6" style="width: 7rem;">
+                {{item.title}}
+              </div>
+              <div *ngIf="item.title=== 'Software Developer'" class="badge bg-success text-wrap col-6" style="width: 7rem;">
+                {{item.title}}
+              </div>
+            </div>
+          </div>
+        
+          
+        </div>
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold"><a>{{item.firstName}} {{item.lastName}}</a></h5>
+          <div class="row">
+            <p class="mb-2 ">Country: {{item.city}} / {{item.country}}</p>
+            <p class="">Birthdate: {{item.birthDate}}</p>
+          </div>
+      </div>
+      <div class="container">
+        <div class="row text-center pb-3">
+          <div class="col-4"><button title="Delete" class="btn btn-lg"><i class="fa-solid fa-trash"></i></button></div>
+          <div class="col-4">
+            <button routerLink="/product/detail/{{item.id}}" title="Detail" class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
+          </div>
+          <div class="col-4">
+            <button title="Update" class="btn btn-lg"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
+          </div>
+        </div>
+      </div>
+      
+    </div>  
+</div>

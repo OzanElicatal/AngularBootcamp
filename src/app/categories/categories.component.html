@@ -1,19 +1,17 @@
 <p>Categories works</p>
-<!--
+
 <div class="container">
-    <div class="row my-5 justify-content-center">
-      <div class="card mt-4"  style="max-width: 23rem; margin-right: 15px;">
-        <div class="bg-image" >
-          <img  class="img-fluid w-100 rounded" style="min-height: 15; max-height: 15rem;" />
-        </div>
-        <div class="card-body">
-          <h5 class="card-title font-weight-bold text-center"><a></a></h5>
-          <div class="row">
-            <p class="mb-2 col-md-7"> </p>
-            
-          </div>
+  <div class="row my-5 justify-content-center">
+    <div class="card mt-4" *ngFor="let category of categories | filter:filterText" style="max-width: 23rem; margin-right: 15px;">
+      <div class="bg-image" >
+        <img src="http://localhost:3030/api/products/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" style="min-height: 15; max-height: 15rem;" />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold text-center"><a>{{category.name}}</a></h5>
+        <div class="row">
+          <p class="mb-2 col-7" style="color: #B12704;">{{category.description}}</p>
         </div>
       </div>
     </div>
   </div>
--->
+</div>
