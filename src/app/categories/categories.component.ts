@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CategoryService } from 'app/services/category.service';
-import { ICategory } from 'app/Models/icategory';
+import { Component, OnInit } from '@angular/core'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { ToastrService } from 'ngx-toastr'
+import { NgForm } from '@angular/forms'
 
 
 @Component({
@@ -9,7 +10,7 @@ import { ICategory } from 'app/Models/icategory';
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit {
-  categories: ICategory[] = [];
+  categories: any = [];
   
   model: any = {
     name: '',
@@ -18,11 +19,25 @@ export class CategoriesComponent implements OnInit {
 
   filterText: string= "";
 
-  constructor(private categoryService: CategoryService ) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.categoryService.getCategoriesList().subscribe(
-      data => { this.categories = data; })
+    let auth_token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${auth_token}`,
+    })
+
+    const requestOptions = { headers: headers }
+
+    this.http
+      .get('http://localhost:3030/api/categories', requestOptions)
+      .subscribe((res: any) => {
+        console.log(res) 
+        this.categories = res.reverse()
+      })
+    // this.categoryService.getCategoriesList().subscribe(
+    //   data => { this.categories = data; })
   };
 
 }

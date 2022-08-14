@@ -13,6 +13,8 @@ import { ProductssService } from '../services/productss.service';
 export class ProductsComponent implements OnInit {
 
   products: IProducts[] = [];
+  displayMode:number=1
+  filterText: string= "";
 
   model: any = {
     name: '',
@@ -20,7 +22,7 @@ export class ProductsComponent implements OnInit {
     stock: 0
   }
 
-  filterText: string= "";
+ 
 
   constructor(private _productservice: ProductssService) { 
   }
@@ -34,6 +36,5 @@ export class ProductsComponent implements OnInit {
 
   }
 
-
-
+  
 }

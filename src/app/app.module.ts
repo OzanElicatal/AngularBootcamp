@@ -4,6 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,6 +19,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 import { TranslateModule } from '@ngx-translate/core'
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { TranslateModule } from '@ngx-translate/core'
     CategoriesComponent,
     EmployeesComponent,
     ProductDetailComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +41,14 @@ import { TranslateModule } from '@ngx-translate/core'
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    TranslateModule.forRoot()
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
   
 })
+
+
 export class AppModule { }

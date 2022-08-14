@@ -1,24 +1,27 @@
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container">
-      <a routerLink='/home' class="navbar-brand" href="#"><img class="img-fluid" src="../assets/img/techcareer-logo.svg" alt=""></a>
+      <img class="img-fluid" src="../assets/img/techcareer-logo.svg" alt="">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#collapsibleNavbar" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="background-color: white; font-size: 25px; border-radius: 7px;"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <div  class="navbar-nav">
           <a routerLink='/home' class="nav-link" href="#">Home</a>
           <a routerLink='/products' class="nav-link" href="#">Products</a>
           <a routerLink='/categories' class="nav-link" href="#">Categories</a>
           <a routerLink='/employees' class="nav-link">Employees</a>
           <a class="nav-link">Contact</a>
           <a routerLink='/login' class="nav-link">Login</a>
-          <div class="mt-2 ms-2">
-            <select class="custom-select">
-            <option>English</option>
-            <option>Turkish</option>
-          </select>
-          </div>
+          <a (click)="logout()" class="nav-link">Logout</a>
+
         </div>
+        <ng-template #login>
+          <a routerLink='/login' class="nav-link">Login</a>
+          
+        </ng-template>
+          
+ 
+        
       </div>
     </div>
   </nav>

@@ -11,7 +11,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'HomepageComponent', pathMatch: 'full'},
+  {path: '', component: LoginComponent},
   {path: 'home', component: HomepageComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'login', component: LoginComponent},

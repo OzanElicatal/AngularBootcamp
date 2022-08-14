@@ -12,7 +12,26 @@
 </div>
 
 <div class="container">
-  <div class="row my-5 justify-content-center">
+  <div class="row">
+    <div class="col-md-4 text-center ">
+    </div>
+    <div class="col-md-4 text-center ">
+    </div>
+    <div class="col-md-4 mt-4 sorting text-center">
+      <select class="custom-select" id="inputGroupSelect04">
+        <option value="active">Advanced Sorting</option>
+        <option value="1" >Name(A-Z)...</option>
+        <option value="2">Name(Z-A)</option>
+        <option value="3">Price:Low to High</option>
+        <option value="4">Price:High to Low</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row my-3 justify-content-center">
     <div class="card mt-4" *ngFor="let item of products | filter:filterText"
       style="max-width: 23rem; margin-right: 15px;">
       <div class="bg-image">

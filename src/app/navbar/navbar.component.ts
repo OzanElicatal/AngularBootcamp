@@ -10,6 +10,13 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
+
+  logout(){
+    localStorage.setItem('token', '')
+    location.replace('/')
+  }
+
 
 }
