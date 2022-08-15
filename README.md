@@ -16,7 +16,7 @@ Modules Used in the Project:
 - ToastrModule.forRoot(),
 - BrowserAnimationsModule,
 
-![](src/assets/img/login.png)
+<!-- ![](src/assets/img/login.png)
 ![](src/assets/img/register.png)
 
 ### log in to activate the category
@@ -26,7 +26,7 @@ Modules Used in the Project:
 
 ![](src/assets/img/loggedin.png)
 ![](src/assets/img/registerview2.png)
-![](src/assets/img/registerview3.png)
+![](src/assets/img/registerview3.png) -->
 
 # Angular
 
