@@ -1,3 +1,33 @@
+### Techcareer Angular Bootcamp
+
+Before starting the project, run the following codes in the terminal:
+```
+npm i
+northwind
+ng serve
+```
+
+Modules Used in the Project:
+- BrowserModule,
+- AppRoutingModule,
+- HttpClientModule,
+- FormsModule,
+- Ng2SearchPipeModule,
+- ToastrModule.forRoot(),
+- BrowserAnimationsModule,
+
+![login](src\assets\img\login.png)
+![register](src\assets\img\register.png)
+
+### log in to activate the category
+![notlog](src\assets\img\categoryNoLogged.png)
+### the category
+![category](src\assets\img\category.png)
+
+![](src\assets\img\loggedin.png)
+![view2](src\assets\img\registerview2.png)
+![view3](src\assets\img\registerview3.png)
+
 # Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
