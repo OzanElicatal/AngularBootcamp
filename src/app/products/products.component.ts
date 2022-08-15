@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProducts } from '../Models/iproducts';
 import { ProductssService } from '../services/productss.service';
+import { ToastrService } from "ngx-toastr";
 
 declare var window: any;
 
@@ -72,5 +73,7 @@ export class ProductsComponent implements OnInit {
       this.viewSecond = false;
     }
   }
+
+  
   
 }
