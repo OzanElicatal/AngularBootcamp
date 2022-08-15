@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import"~alertifyjs/build/css/alertify.min.css";
+@import"~alertifyjs/build/css/themes/bootstrap.min.css";
 
 .ng-touched .ng-invalid {
     border-left: 5px solid #a94442;
