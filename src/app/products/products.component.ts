@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { IProducts } from '../Models/iproducts';
 import { ProductssService } from '../services/productss.service';
 
+declare var window: any;
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -15,12 +17,16 @@ export class ProductsComponent implements OnInit {
   products: IProducts[] = [];
   displayMode:number=1
   filterText: string= "";
+  deleteModal: any;
+  detailModel: any;
 
   model: any = {
     name: '',
     price: 0,
     stock: 0
   }
+
+  
 
  
 
@@ -29,12 +35,18 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this._productservice.getProductList().subscribe(data => this.products = data);
-  }
-
-  addToList($event: any, products: IProducts){
-    console.log(products);
 
   }
+
+  
+  deleteFormModal() {
+    this.deleteModal.show();
+  }
+
+  detailFormModal() {
+    this.detailModel.show();
+  }
+
 
   
 }

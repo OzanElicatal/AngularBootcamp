@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { CategoriesComponent } from './categories/categories.component'
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'categories', component: CategoriesComponent},
   {path: 'employees', component: EmployeesComponent},
   {path: 'products/:productId', component: ProductDetailComponent},
-  {path: 'product/create', component: ProductCreateComponent}
+  {path: 'product/create', component: ProductCreateComponent},
+  {path: 'contact', component: ContactComponent}
 
 ];
 

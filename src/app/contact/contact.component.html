@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row mt-3">
+
+    <div class="col-md-4 offset-md-4 mt-2">
+      <input style="border: 1px solid #ffc107;" class="form-control" type="search" placeholder="Search.."
+        aria-label="Search" [(ngModel)]="filterText">
+    </div>
+    <div class="col-md-4 mt-1 text-center ">
+      <a routerLink="/product/create" style="font-size: 30px;color: black;"><i class="fa-solid fa-plus"></i></a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row my-3 justify-content-center">
+    <div class="card py-4 mb-5"  *ngFor="let item of contact | filter:filterText"
+      style="max-width: 23rem; margin-right: 15px;">
+      <div class="bg-image text-center">
+        <img
+          src="https://img-s1.onedio.com/id-624b4621974613251116f50d/rev-0/w-620/f-jpg/s-8840a47ea9f82b96f0e89646679a260a799f89f5.jpg"
+          class="img-fluid w-75 rounded-circle" style="min-height: 15; max-height: 15rem;" />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold col-md-12 text-center"><a>{{item.name}}</a></h5>
+        <div class="row">
+          <div class="col-md-12">
+            <p> Message: <i style="color: #ffc107;"> {{item.message}}</i>
+          </div>
+          <div class="col-md-12">
+            <p> Phone: {{item.phone}} 
+          </div>
+          <p class="col-md-12">{{item.email}}</p>
+          <div class="row">
+            <div class="col-md-3 ms-3 mt-2"><a href="Phone:{{item.phone}}">
+                <div *ngIf="item.phone.length == 10" class="phone"><i style="font-size: 25px; color: black;"
+                    class="fa-solid fa-phone"></i></div>
+              </a></div>
+            <div class="col-md-3 offset-md-3"></div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

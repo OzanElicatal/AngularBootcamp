@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -20,6 +21,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 import { TranslateModule } from '@ngx-translate/core'
 import { RegisterComponent } from './register/register.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { RegisterComponent } from './register/register.component';
     EmployeesComponent,
     ProductDetailComponent,
     ProductCreateComponent,
-    RegisterComponent
+    RegisterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { RegisterComponent } from './register/register.component';
     Ng2SearchPipeModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    
   ],
   exports: [RouterModule],
   providers: [],

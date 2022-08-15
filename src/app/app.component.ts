@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ICategory } from './Models/icategory';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,10 +37,12 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    
     const lang = localStorage.getItem('lang');
     if (!lang) this.setLang('tr');
 
     if (lang === 'tr') {
+      
       this.language.home = 'Anasayfa';
       this.language.products = 'Ürünler';
       this.language.categories = 'Kategoriler';
