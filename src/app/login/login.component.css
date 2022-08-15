@@ -2,3 +2,11 @@
     box-shadow: 0px 5px 10px black;
     
 }
+
+.ng-touched .ng-invalid {
+    border-left: 5px solid #a94442;
+}
+
+.ng-dirty .ng-valid {
+    border-left: 5px solid #42A948;
+}

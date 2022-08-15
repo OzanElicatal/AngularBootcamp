@@ -13,9 +13,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductCreateComponent implements OnInit {
   
   product: IProducts[] = [];
+
   model: any = {
-    productId: ''
-  };
+    name: '',
+    price: 0,
+    stock: 0,
+    imageUrl: ''
+  }
+
 
   constructor(private productService: ProductssService,
               private router: Router) { }
@@ -24,17 +29,6 @@ export class ProductCreateComponent implements OnInit {
     this.productService.getProductList().subscribe(data => this.product = data);
   }
 
-  createProduct(name: any,price: any,stock: any,imgName: any){
-    const product = {
-      id: 0,
-      name: name.value,
-      price: price.value,
-      stock: stock.value,
-      imageName: imgName.value
-    }
-    this.productService.createProduct(product).subscribe(data => {
-      this.router.navigate(['/products', data.id]);
-    })
-  }
+  
 
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { ToastrService } from 'ngx-toastr'
-import { NgForm } from '@angular/forms'
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -16,6 +16,10 @@ export class CategoriesComponent implements OnInit {
     name: '',
     description:''
   }
+
+  viewFirst: boolean = true;
+  viewSecond: boolean = false;
+  viewThird: boolean = false;
 
   filterText: string= "";
 
@@ -39,5 +43,27 @@ export class CategoriesComponent implements OnInit {
     // this.categoryService.getCategoriesList().subscribe(
     //   data => { this.categories = data; })
   };
+
+  viewFirstChange() {
+    if (this.viewSecond == false || this.viewThird == false) {
+      this.viewFirst = true;
+      this.viewSecond = false;
+      this.viewThird = false;
+    }
+  }
+  viewSecondChange() {
+    if (this.viewFirst == false || this.viewThird == false) {
+      this.viewSecond = true;
+      this.viewFirst = false;
+      this.viewThird = false;
+    }
+  }
+  viewThirdChange() {
+    if (this.viewFirst == false || this.viewSecond == false) {
+      this.viewThird = true;
+      this.viewFirst = false;
+      this.viewSecond = false;
+    }
+  }
 
 }

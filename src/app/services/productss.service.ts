@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProducts } from '../Models/iproducts';
 
@@ -17,10 +17,5 @@ export class ProductssService {
     return this.http.get<IProducts[]>(this.url);
   }
 
-  createProduct(product: IProducts): Observable<IProducts>{
-    
-    return this.http.post<IProducts>(this.url,product);
-  }
 
-  
 }

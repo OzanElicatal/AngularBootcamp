@@ -6,23 +6,147 @@
         aria-label="Search" [(ngModel)]="filterText">
     </div>
     <div class="col-md-4 mt-1 text-center ">
-      <a routerLink="/product/create" style="font-size: 30px;color: black;"><i class="fa-solid fa-plus"></i></a>
+      <a style="font-size: 30px;color: black;"><i class="fa-solid fa-plus"></i></a>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="row my-5 justify-content-center">
-    <div class="card mt-4" *ngFor="let category of categories | filter:filterText" style="max-width: 23rem; margin-right: 15px;">
+  <div class="row">
+    <div class="col-md-4 mt-4 text-center ">
+      <div class="btn-group d-flex">
+
+        <button type="button" class="btn" (click)="viewFirstChange()" [disabled]="viewFirst">
+          <i class="fa-solid fa-table-cells"></i>
+        </button>
+
+        <button type="button" class="btn" (click)="viewSecondChange()" [disabled]="viewSecond">
+          <i class="fa-solid fa-align-justify"></i>
+        </button>
+
+        <button type="button" class="btn" (click)="viewThirdChange()" [disabled]="viewThird">
+          <i class="fa-solid fa-align-right"></i>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-4 text-center ">
+    </div>
+    <div class="col-md-4 mt-4 sorting text-center">
+      <select class="custom-select" id="inputGroupSelect04">
+        <option value="active">Advanced Sorting</option>
+        <option value="1">Name(A-Z)...</option>
+        <option value="2">Name(Z-A)</option>
+        <option value="3">Price:Low to High</option>
+        <option value="4">Price:High to Low</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- viewFirst -->
+<div class="container" *ngIf="viewFirst == true">
+  <div class="row my-3 justify-content-center">
+    <div class="card mt-4 me-2" *ngFor="let category of categories | filter:filterText" 
+    style="max-width: 22rem; max-height: 35rem; margin-right: 5px;">
       <div class="bg-image" >
-        <img src="http://localhost:3030/api/products/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" style="min-height: 15; max-height: 15rem;" />
+        <img src="http://localhost:3030/api/products/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" 
+        style="min-height: 15rem; max-height: 15rem;" />
       </div>
       <div class="card-body">
         <h5 class="card-title font-weight-bold text-center"><a>{{category.name}}</a></h5>
-        <div class="row">
+        
+        <div class="row" style="height: 7rem;">
           <p class="mb-2 col-7">{{category.description}}</p>
         </div>
+
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-4">
+              <button type="button" class="btn btn-lg" data-toggle="modal"
+                data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
+
+            <div class="col-4">
+              <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-lg" data-toggle="modal" data-toggle="modal"
+                data-target="#detailModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
+              </button></div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- viewSecond -->
+<div class="container" *ngIf="viewSecond == true">
+  <div class="row " >
+    <div class="card mt-3 col-12 "  *ngFor="let category of categories | filter:filterText" 
+    style="max-width: 133rem; max-height: 35rem; margin-right: 2rem;margin-bottom: 1rem; ">
+      <div class="row justify-content-center">
+        <div class=" col-4">
+          <img src="http://localhost:3030/api/products/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" 
+          style="min-height: 15rem; max-height: 15rem;" />
+        </div> 
+        <div class="col-4 ">
+          <h5 class="card-title font-weight-bold"><a>{{category.name}}</a></h5>
+          <p class="">{{category.description}}</p>
+        </div>
+      <div class="col-4 ">
+        <div class="row mb-4">
+          <div class="col-4">
+            <button type="button" class="btn btn-lg" data-toggle="modal"
+              data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
+
+          <div class="col-4">
+            <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-lg" data-toggle="modal" data-toggle="modal"
+              data-target="#detailModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
+            </button></div>
+        </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- view3 -->
+<div class="container" *ngIf="viewThird == true">
+  <div class="row justify-content-center" >
+    <div class="card mt-3"  *ngFor="let category of categories | filter:filterText" 
+    style="max-width: 33rem; max-height: 35rem; margin-right: 2rem;margin-bottom: 1rem; ">
+      <div class="row justify-content-center">
+        <div class=" col-4">
+          <img src="http://localhost:3030/api/products/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" 
+          style="min-height: 15rem; max-height: 15rem;" />
+        </div> 
+        <div class="col-4 text-center">
+          <h5 class="card-title font-weight-bold"><a>{{category.name}}</a></h5>
+          <p class="">{{category.description}}</p>
+        </div>
+      <div class="col-4 ">
+        <div class="row mb-4">
+          <div class="col-4">
+            <button type="button" class="btn btn-lg" data-toggle="modal"
+              data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
+
+          <div class="col-4">
+            <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-lg" data-toggle="modal" data-toggle="modal"
+              data-target="#detailModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
+            </button></div>
+        </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </div>
