@@ -6,8 +6,10 @@
         aria-label="Search" [(ngModel)]="filterText">
     </div>
     <div class="col-md-4 mt-1 text-center ">
-      <a routerLink="/product/create" style="font-size: 30px;color: black;"><i class="fa-solid fa-plus"></i></a>
-    </div>
+      <button type="button" class="btn col-md-4" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        <i class="fa fa-plus" style="font-size:35px;"></i>
+       </button>    
+      </div>
   </div>
 </div>
 
@@ -43,3 +45,43 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Name: </span>
+              <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" id="addNameInput">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Email: </span>
+              <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" id="addEmailInput">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Phone: </span>
+              <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="addPhoneInput">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Message: </span>
+              <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="addMessageInput">
+            </div>
+            
+          
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a  class="btn btn-primary"  (click)="addContact()">Add</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

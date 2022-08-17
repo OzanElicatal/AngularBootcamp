@@ -6,6 +6,10 @@
         aria-label="Search" [(ngModel)]="filterText">
     </div>
 
+    <button type="button" class="btn col-md-4" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
+      <i class="fa fa-plus" style="font-size:35px;"></i>
+     </button>
+
   </div>
 </div>
 
@@ -73,14 +77,15 @@
       </div>
       <div class="container">
         <div class="row text-center pb-3">
-          <div class="col-4"><button title="Delete" class="btn btn-lg"><i class="fa-solid fa-trash"></i></button>
+          <div class="col-4"><button title="Delete" class="btn btn-lg" (click)= "deletecategory(item)" ><i class="fa-solid fa-trash"></i></button>
           </div>
           <div class="col-4">
             <button routerLink="/product/detail/{{item.id}}" title="Detail" class="btn btn-lg"><i
                 class="fa-solid fa-circle-info"></i></button>
           </div>
           <div class="col-4">
-            <button title="Update" class="btn btn-lg"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
+            <button title="Update" class="btn btn-lg" (click)="showUpdate(item)" data-bs-toggle="modal" data-bs-target="#exampleModal" id="updateButton">
+              <i class="fa-solid fa-trash-can-arrow-up"></i></button>
           </div>
         </div>
       </div>
@@ -88,6 +93,106 @@
     </div>
   </div>
 </div>
+
+<!-- modal add -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name: </span>
+            <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" id="addemployeeFirstNameInput">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Lastname: </span>
+            <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" id="addemployeeLastNameInput">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Title: </span>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="addemployeeTitleInput">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Country: </span>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="addemployeeCountryInput">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">City: </span>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="addemployeeCityInput">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Birth Date: </span>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="addemployeeBirthDateInput">
+          </div>
+        
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Image Url: </span>
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="addImageInput">
+        </div>
+        
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a  class="btn btn-primary" (click)="addEmployee()" href="/employees">Add</a>
+        
+      
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<!-- Upgrade model -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Name: </span>
+          <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" id="employeeFirstnameInput">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Lastname: </span>
+          <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" id="employeeLastnameInput">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Title: </span>
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="employeeTitleInput">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Country: </span>
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="employeeCountryInput">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">City: </span>
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="employeeCityInput">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Birth Date: </span>
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="employeeBirthDateInput">
+        </div>
+        
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="" class="btn btn-primary" (click)="update()" href="/employees">Save changes</a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- View2 -->
 <div class="container" *ngIf="viewSecond == true">
   <div class="row my-5 justify-content-center">
@@ -129,14 +234,16 @@
       </div>
       <div class="container">
         <div class="row text-center pb-3">
-          <div class="col-4"><button title="Delete" class="btn btn-lg"><i class="fa-solid fa-trash"></i></button>
+          <div class="col-4"><button title="Delete" class="btn btn-lg" (click)= "deletecategory(item)">
+            <i class="fa-solid fa-trash"></i></button>
           </div>
           <div class="col-4">
             <button routerLink="/product/detail/{{item.id}}" title="Detail" class="btn btn-lg"><i
                 class="fa-solid fa-circle-info"></i></button>
           </div>
           <div class="col-4">
-            <button title="Update" class="btn btn-lg"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
+            <button title="Update" class="btn btn-lg" (click)="showUpdate(item)" data-bs-toggle="modal" data-bs-target="#exampleModal" id="updateButton">
+              <i class="fa-solid fa-trash-can-arrow-up"></i></button>
           </div>
         </div>
       </div>
@@ -185,14 +292,14 @@
       </div>
       <div class="container">
         <div class="row text-center pb-3">
-          <div class="col-4"><button title="Delete" class="btn btn-lg"><i class="fa-solid fa-trash"></i></button>
+          <div class="col-4"><button title="Delete" class="btn btn-lg" (click)= "deletecategory(item)"><i class="fa-solid fa-trash"></i></button>
           </div>
           <div class="col-4">
             <button routerLink="/product/detail/{{item.id}}" title="Detail" class="btn btn-lg"><i
                 class="fa-solid fa-circle-info"></i></button>
           </div>
           <div class="col-4">
-            <button title="Update" class="btn btn-lg"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
+            <button title="Update" class="btn btn-lg"><i class="fa-solid fa-trash-can-arrow-up" (click)="showUpdate(item)" data-bs-toggle="modal" data-bs-target="#exampleModal" id="updateButton"></i></button>
           </div>
         </div>
       </div>

@@ -79,21 +79,17 @@ export class ProductsComponent implements OnInit {
 
     return this.producttemp
   }
+
 // delete---
   delete(product:IProducts){
  
-      this.alertifyService.confirm(product.name+ " Ürünü Silmek Üzeresiniz","Emin misiniz?",()=>{
+      this.alertifyService.confirm(product.name+ " you are about to delete it","ArE you sure?",()=>{
         this._productservice.deleteProducts(product).subscribe(data=>{})
         
         // this.router.navigate(["/products"])
         window.location.reload();
-      }, ()=>{ this.alertifyService.error('İptal edildi')}
+      }, ()=>{ this.alertifyService.error('Cancelled')}
       )
-    
-
-
-
-
   }
 
   // add product
@@ -122,7 +118,7 @@ export class ProductsComponent implements OnInit {
 
 
     this.http.post<IProducts>(this.url,body, httpOptions).subscribe(data=>{
-      this.alertifyService.success(data.name+" başarıyla güncellendi")
+      this.alertifyService.success(data.name+" Added")
       window.location.reload()
    })
   }
