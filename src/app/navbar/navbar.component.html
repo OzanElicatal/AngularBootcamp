@@ -6,19 +6,16 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div  class="navbar-nav">
-          <a routerLink='/home' class="nav-link" href="#">Home</a>
-          <a routerLink='/products' class="nav-link" href="#">Products</a>
-          <a routerLink='/categories' class="nav-link" href="#">Categories</a>
-          <a routerLink='/employees' class="nav-link">Employees</a>
-          <a routerLink='/contact' class="nav-link">Contact</a>
-          <a routerLink='/login' class="nav-link">Login</a>
-          <a (click)="logout()" class="nav-link">Logout</a>
+          <a *ngIf="isLoggedIn()==true" routerLink='/home' class="nav-link" href="#">Home</a>
+          <a *ngIf="isLoggedIn()==true" routerLink='/products' class="nav-link" href="#">Products</a>
+          <a *ngIf="isLoggedIn()==true" routerLink='/categories' class="nav-link" href="#">Categories</a>
+          <a *ngIf="isLoggedIn()==true" routerLink='/employees' class="nav-link">Employees</a>
+          <a *ngIf="isLoggedIn()==true" routerLink='/contact' class="nav-link">Contact</a>
+          <a *ngIf="isLoggedIn()==true" routerLink='/login' class="nav-link">Login</a>
+          <a *ngIf="isLoggedIn()==true"(click)="logOut()" class="nav-link">Logout</a>
 
         </div>
-        <ng-template #login>
-          <a routerLink='/login' class="nav-link">Login</a>
-          
-        </ng-template>
+       
           
       </div>
     </div>

@@ -7,6 +7,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
+import { LoginGuard } from './login/login.guard';
 
 
 import { AppComponent } from './app.component';
@@ -19,9 +20,9 @@ import { CategoriesComponent } from './categories/categories.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
-import { TranslateModule } from '@ngx-translate/core'
 import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -44,12 +45,9 @@ import { ContactComponent } from './contact/contact.component';
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    ToastrModule.forRoot(),
-    BrowserAnimationsModule,
     
   ],
-  exports: [RouterModule],
-  providers: [],
+  providers: [AccountService,LoginGuard],
   bootstrap: [AppComponent]
   
 })

@@ -13,7 +13,7 @@ import { AlertifyService } from '../services/alertify.service';
 export class CategoryService {
     url = "http://localhost:3030/api/categories";
 
-    constructor(private http: HttpClient, private accountService: AccountService,private alertifyService:AlertifyService) {}
+    constructor(private http: HttpClient, private alertifyService:AlertifyService, private accountService: AccountService) {}
 
     getCategoriesList(): Observable<ICategory[]>{
       return this.http.get<ICategory[]>(this.url);

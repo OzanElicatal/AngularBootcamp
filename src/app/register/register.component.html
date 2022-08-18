@@ -10,22 +10,20 @@
   
                   <h4 class="text-center mb-5 mx-1 mt-4">Sign up</h4>
   
-                  <form #myForm= 'ngForm' (ngSubmit)="onRegisterSubmit(myForm)" class="row mx-1 mx-md-4">
+                  <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" class="row mx-1 mx-md-4">
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input required ngModel #name="ngModel" name = "firstName" type="text" class="form-control" placeholder="Name" />
-                        <div class="alert  alert-danger" *ngIf="!name.valid && name.touched">
-                          Name is required
-                        </div>
+                        <input required #firstName="ngModel" [(ngModel)]="model.firstName" [ngModelOptions]="{standalone: true}" name = "firstName" type="text" class="form-control" placeholder="Name" />
+                  
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input required ngModel #lastname name = "lastName" type="text" class="form-control" placeholder="Lastname" />
+                        <input required #lastName="ngModel" [(ngModel)]="model.lastName" [ngModelOptions]="{standalone: true}" name = "lastName" type="text" class="form-control" placeholder="Lastname" />
                         
                       </div>
                     </div>
@@ -33,21 +31,21 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa-solid fa-user-astronaut fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input required ngModel name = "username" type="text" class="form-control" placeholder="Username" />
+                        <input required #username="ngModel" [(ngModel)]="model.username" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Username" />
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input required ngModel name = "password" type="password" id="form3Example4c" class="form-control" placeholder="Password"/>
+                        <input required #password="ngModel" [(ngModel)]="model.password" [ngModelOptions]="{standalone: true}" type="password" id="form3Example4c" class="form-control" placeholder="Password"/>
                       </div>
                     </div>
   
       
   
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-warning" style="color: white">Create account</button>
+                        <button type="submit" class="btn btn-warning" style="color: white" >Create account</button>
                     </div>
   
                   </form>

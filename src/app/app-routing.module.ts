@@ -7,21 +7,18 @@ import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 import { CategoriesComponent } from './categories/categories.component'
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
-import { ProductCreateComponent } from './products/product-create/product-create.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginGuard } from './login/login.guard';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'home', component: HomepageComponent},
-  {path: 'products', component: ProductsComponent},
+  {path: '', redirectTo:'login',pathMatch:'full'},
+  {path: 'home', component: HomepageComponent, canActivate: [LoginGuard]},
+  {path: 'products', component: ProductsComponent, canActivate: [LoginGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'categories', component: CategoriesComponent},
-  {path: 'employees', component: EmployeesComponent},
-  {path: 'products/:productId', component: ProductDetailComponent},
-  {path: 'product/create', component: ProductCreateComponent},
-  {path: 'contact', component: ContactComponent}
+  {path: 'categories', component: CategoriesComponent, canActivate: [LoginGuard]},
+  {path: 'employees', component: EmployeesComponent, canActivate: [LoginGuard]},
+  {path: 'contact', component: ContactComponent, canActivate: [LoginGuard]}
 
 ];
 

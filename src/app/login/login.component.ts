@@ -1,57 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Route, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { NavbarComponent } from 'app/navbar/navbar.component';
+import { AccountService } from 'app/services/account.service';
+import { AlertifyService } from 'app/services/alertify.service';
+import { Login } from 'app/Models/login';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [NavbarComponent]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  model: Login = new Login();
+  loginTokenValue:string;
 
-  constructor(private http: HttpClient, private toastr: ToastrService, private navbar: NavbarComponent) { }
+  constructor(private accountService: AccountService, private router: Router,private alertifyService:AlertifyService) { }
 
   ngOnInit(): void {
   }       
 
-  onSubmit(myForm: NgForm) {
-    const headers = {
-      Authorization: 'Bearer my-token',
-      'My-Custom-Header': 'foobar',
-    }
-    const body = myForm.value
-    this.http
-      .post<any>('http://localhost:3030/api/auth/login', body, { headers })
-      .subscribe({
-        next: (data) => {
-          console.log(data)
-          localStorage.setItem('token', data)
-          localStorage.setItem('loginCheck', 'true')
+  login(form: NgForm) {
+    
+    this.accountService.login(this.model).subscribe(data=>{
+      this.accountService.Logged()
+      this.loginTokenValue=data
+      sessionStorage.setItem("isLoggedIn",this.model.username)
+      sessionStorage.setItem(this.model.username,data)
+      this.route();
+    })
 
-          this.toastr.success(
-            'Giriş Başarılı Yönlendiriliyorsunuz',
-            'Toastr fun!',
-            { timeOut: 1000 },
-          )
-
-          setTimeout(() => {
-            location.replace('/categories')
-          }, 1000)
-
-          
-        },
-        error: (error) => {
-          this.toastr.error('Başarısız Giriş Denemesi', 'Toastr fun!', {
-            timeOut: 2000,
-          })
-        },
-      })
   }
+  getTokenValue(){
+    return this.loginTokenValue
+  }
+  isLoggedIn(){
+    return this.accountService.isLoggedIn();
+  }
+  route(){
+    
+    if(this.accountService.isLoggedIn()){
+     
+      this.router.navigate(["/home"]);
+    }
 
+  
 
-
+  }
 
 }
