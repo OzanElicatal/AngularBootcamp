@@ -30,16 +30,16 @@ export class RegisterComponent implements OnInit {
     var password= document.getElementById("password") as HTMLInputElement
     console.log(password.value)
     if(firstName.value.length<2){
-      this.alertifyService.error("İsim minimum 2 karakter içermelidir")
+      this.alertifyService.error("The name must contain a minimum of 2 characters")
     }
     if(lastName.value.length<2){
-      this.alertifyService.error("Soyisim minimum 2 karakter içermelidir")
+      this.alertifyService.error("The surname must contain a minimum of 2 characters")
     }
     if(username.value.length<4){
-      this.alertifyService.error("Kullanıcı Adı minimum 4 karakter içermelidir")
+      this.alertifyService.error("The username must contain a minimum of 4 characters")
     }
     if(password.value.length<4){
-      this.alertifyService.error("Şifre minimum 4 karakter içermelidir")
+      this.alertifyService.error("The password must contain a minimum of 4 characters")
     }
     if(firstName.value.length>=2 && lastName.value.length>=2 && username.value.length>=4 && password.value.length>=4){
  
