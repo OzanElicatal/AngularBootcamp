@@ -6,24 +6,31 @@ import {tap,catchError} from 'rxjs/operators';
 import { AccountService } from "./account.service";
 import { AlertifyService } from '../services/alertify.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class CategoryService {
     url = "http://localhost:3030/api/categories";
+    username=sessionStorage.getItem("isLoggedIn")
+    httpOptions={
+      headers:new HttpHeaders({
+        'Authorization': "Bearer "+sessionStorage.getItem(this.username)
+      })
+    }
 
     constructor(private http: HttpClient, private alertifyService:AlertifyService, private accountService: AccountService) {}
 
     getCategoriesList(): Observable<ICategory[]>{
-      return this.http.get<ICategory[]>(this.url);
+      return this.http.get<ICategory[]>(this.url, this.httpOptions);
     }
 
     deleteCategory(product: ICategory):Observable<ICategory>{
       const httpOptions={
         headers:new HttpHeaders({
           'Content-Type':'application/json',
-          'authorization':'Token'
+          'Authorization': "Bearer "+sessionStorage.getItem(this.username)
         })
       }
       return this.http.delete<ICategory>(this.url+"/"+product.id,httpOptions).pipe(

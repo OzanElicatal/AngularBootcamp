@@ -15,7 +15,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input required #firstName="ngModel" [(ngModel)]="model.firstName" [ngModelOptions]="{standalone: true}" name = "firstName" type="text" class="form-control" placeholder="Name" />
+                        <input required #firstName="ngModel" [(ngModel)]="model.firstName" [ngModelOptions]="{standalone: true}" id="firstName" name = "firstName" type="text" class="form-control" placeholder="Name" />
                   
                       </div>
                     </div>
@@ -23,7 +23,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input required #lastName="ngModel" [(ngModel)]="model.lastName" [ngModelOptions]="{standalone: true}" name = "lastName" type="text" class="form-control" placeholder="Lastname" />
+                        <input required #lastName="ngModel" [(ngModel)]="model.lastName" [ngModelOptions]="{standalone: true}" id="lastName" name = "lastName" type="text" class="form-control" placeholder="Lastname" />
                         
                       </div>
                     </div>
@@ -31,14 +31,14 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa-solid fa-user-astronaut fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input required #username="ngModel" [(ngModel)]="model.username" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Username" />
+                        <input required #username="ngModel" [(ngModel)]="model.username" [ngModelOptions]="{standalone: true}" id="username" type="text" class="form-control" placeholder="Username" />
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input required #password="ngModel" [(ngModel)]="model.password" [ngModelOptions]="{standalone: true}" type="password" id="form3Example4c" class="form-control" placeholder="Password"/>
+                        <input required #password="ngModel" [(ngModel)]="model.password" [ngModelOptions]="{standalone: true}" id="password" type="password" class="form-control" placeholder="Password"/>
                       </div>
                     </div>
   

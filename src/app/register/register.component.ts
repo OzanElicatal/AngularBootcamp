@@ -24,11 +24,11 @@ export class RegisterComponent implements OnInit {
 
   
   register(form: NgForm){
-    console.log(this.model.firstName)
     var firstName= document.getElementById("firstName") as HTMLInputElement
     var lastName= document.getElementById("lastName") as HTMLInputElement
     var username= document.getElementById("username") as HTMLInputElement
     var password= document.getElementById("password") as HTMLInputElement
+    console.log(password.value)
     if(firstName.value.length<2){
       this.alertifyService.error("İsim minimum 2 karakter içermelidir")
     }
