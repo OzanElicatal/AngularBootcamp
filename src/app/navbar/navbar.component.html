@@ -11,7 +11,7 @@
           <a *ngIf="isLoggedIn()==true" routerLink='/categories' class="nav-link" href="#">Categories</a>
           <a *ngIf="isLoggedIn()==true" routerLink='/employees' class="nav-link">Employees</a>
           <a *ngIf="isLoggedIn()==true" routerLink='/contact' class="nav-link">Contact</a>
-          <a *ngIf="isLoggedIn()==true" routerLink='/login' class="nav-link">Login</a>
+          <a *ngIf="isLoggedIn()==false" routerLink='/login' class="nav-link">Login</a>
           <a *ngIf="isLoggedIn()==true"(click)="logOut()" class="nav-link">Logout</a>
 
         </div>

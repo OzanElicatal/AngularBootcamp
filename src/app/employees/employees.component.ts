@@ -161,4 +161,26 @@ showUpdate(employee:IEmployees){
   return this.employeetemp
 }
 
+showDetails(employee: IEmployees) {
+  this.alertifyService.alert(employee.firstName+employee.lastName, "Title: " + employee.title+ "    <br> Country: " + employee.country+ "<br> City: "+employee.city+ "<br> Birth Date: "+employee.birthDate,
+  () => {
+  });
+}
+
+saveOptions(){
+  var search= document.getElementById("employeeName") as HTMLInputElement
+  console.log(search)
+  localStorage.setItem("filterText",search.value)
+  var filterText= document.getElementById("flexCheckChecked2") as HTMLInputElement
+
+  
+  
+}
+
+clearOptions(){
+  localStorage.removeItem("filterText")
+  window.location.reload()
+}
+
+
 }

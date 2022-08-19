@@ -73,6 +73,52 @@ export class CategoriesComponent implements OnInit {
       )
   }
 
+  showUpdate(category:ICategory){
+    this.categoryTemp=category
+    console.log(this.categoryTemp)
+    return this.categoryTemp
+  }
+
+
+  updateCategory(){
+    const httpOption={
+      headers:new HttpHeaders({
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer '+sessionStorage.getItem(this.username)
+      })
+    }
+    
+    console.log(this.categoryTemp)
+    var name= document.getElementById("categoryNameInput") as HTMLInputElement
+    if(name.value==""){
+      name.value=this.categoryTemp.name
+    }
+    var description= document.getElementById("categoryDescriptionInput") as HTMLInputElement
+    if(description.value==""){
+      description.value=this.categoryTemp.description;
+    }
+    
+    
+    console.log(description.value)
+      const body={name:name.value,description:description.value}
+    this.http.put<ICategory>(this.url+"/"+this.categoryTemp.id,body, httpOption).subscribe(data=>{
+      if(sessionStorage.getItem("lang")=="1"){
+        this.alertifyService.success(data.name+" başarıyla güncellendi")
+      }
+      else{
+        this.alertifyService.success(data.name+" Updated")
+      }
+     
+   })
+  } 
+
+  showDetails(category: ICategory) {
+    this.alertifyService.alertCategory(category.name, "Description: " + category.description.toString() ,
+    () => {
+    });
+    
+  }
+  
   viewFirstChange() {
     if (this.viewSecond == false || this.viewThird == false) {
       this.viewFirst = true;
@@ -95,4 +141,18 @@ export class CategoriesComponent implements OnInit {
     }
   }
 
+  saveOptions(){
+    var search= document.getElementById("categoryName") as HTMLInputElement
+    console.log(search)
+    localStorage.setItem("filterText",search.value)
+    var filterText= document.getElementById("flexCheckChecked2") as HTMLInputElement
+  
+    
+    
+  }
+  
+  clearOptions(){
+    localStorage.removeItem("filterText")
+    window.location.reload()
+  }
 }

@@ -1,14 +1,19 @@
 <div class="container">
   <div class="row mt-3">
-
-    <div class="col-md-4 offset-md-4 mt-2">
-      <input style="border: 1px solid black;" class="form-control" type="search" placeholder="Search.."
-        aria-label="Search" [(ngModel)]="filterText">
-    </div>
-
     <button type="button" class="btn col-md-4" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
       <i class="fa fa-plus" style="font-size:35px;"></i>
      </button>
+
+    <div class="col-md-4 mt-2">
+      <input style="border: 1px solid black;" class="form-control" type="search" placeholder="Search.."
+        aria-label="Search" id="productName" [(ngModel)]="filterText">
+    </div>
+
+
+     <div class="col-md-4  mt-2">
+      <button type="button"class="btn" (click)="saveOptions()">Save the search</button>
+      <button type="button" class="btn" (click)="clearOptions()">Clear the search</button>
+    </div>
 
   </div>
 </div>
@@ -16,7 +21,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 mt-4 text-center ">
-      <div class="btn-group d-flex">
+      <div class="btn-group d-flex" id="view">
 
         <button type="button" class="btn" (click)="viewFirstChange()" [disabled]="viewFirst">
           <i class="fa-solid fa-table-cells"></i>
@@ -97,7 +102,7 @@
                 data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
 
             <div class="col-4">
-              <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
+              <button class="btn btn-lg" (click)="showDetails(item)"><i class="fa-solid fa-circle-info"></i></button>
             </div>
             <div class="col-4">
               <a  class="btn btn-lg" (click)="showUpdate(item)" data-bs-toggle="modal" data-bs-target="#exampleModal" id="updateButton">
@@ -222,7 +227,7 @@
                 data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
 
             <div class="col-3">
-              <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
+              <button class="btn btn-lg" (click)="showDetails(item)"><i class="fa-solid fa-circle-info"></i></button>
             </div>
             <div class="col-3">
               <button class="btn btn-lg" (click)="showUpdate(item)" data-bs-toggle="modal" data-bs-target="#exampleModal" id="updateButton"><i class="fa-solid fa-trash-can-arrow-up"></i>
@@ -261,7 +266,7 @@
                 data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
 
             <div class="col-4">
-              <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
+              <button class="btn btn-lg" (click)="showDetails(item)"><i class="fa-solid fa-circle-info"></i></button>
             </div>
             <div class="col-4">
               <button class="btn btn-lg" (click)="showUpdate(item)" data-bs-toggle="modal" data-bs-target="#exampleModal" id="updateButton"><i class="fa-solid fa-trash-can-arrow-up"></i>

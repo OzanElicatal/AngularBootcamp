@@ -1,16 +1,21 @@
 <div class="container">
   <div class="row mt-3">
+    <button type="button" class="btn col-md-4" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
+      <i class="fa fa-plus" style="font-size:35px;"></i>
+     </button>
+    
 
-    <div class="col-md-4 offset-md-4 mt-2">
+    <div class="col-md-4 mt-2">
       <input style="border: 1px solid black;" class="form-control" type="search" placeholder="Search.."
-        aria-label="Search" [(ngModel)]="filterText">
+        aria-label="Search" id="contactName" [(ngModel)]="filterText">
     </div>
-    <div class="col-md-4 mt-1 text-center ">
-      <button type="button" class="btn col-md-4" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-        <i class="fa fa-plus" style="font-size:35px;"></i>
-       </button>    
-      </div>
-  </div>
+
+    <div class="col-md-4  mt-2">
+      <button type="button"class="btn" (click)="saveOptions()">Save the search</button>
+      <button type="button" class="btn" (click)="clearOptions()">Clear the search</button>
+    </div>
+
+
 </div>
 
 <div class="container">
@@ -37,8 +42,10 @@
                 <div *ngIf="item.phone.length == 10" class="phone"><i style="font-size: 25px; color: black;"
                     class="fa-solid fa-phone"></i></div>
               </a></div>
-            <div class="col-md-3 offset-md-3"></div>
-
+            <div class="col-md-3 offset-md-3">
+              <img *ngIf="item.message!='' " src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="" style="width: 2rem;">
+              <img *ngIf="item.phone.length==11 " src="https://iconarchive.com/download/i91323/icons8/windows-8/Mobile-Phone.ico" alt="" style="width: 2rem;" >
+            </div>
           </div>
 
         </div>

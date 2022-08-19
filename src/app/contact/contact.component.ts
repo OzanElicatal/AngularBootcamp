@@ -67,6 +67,21 @@ export class ContactComponent implements OnInit {
       console.log(data)
     })
   }
+
+  saveOptions(){
+    var search= document.getElementById("contactName") as HTMLInputElement
+    console.log(search)
+    localStorage.setItem("filterText",search.value)
+    var filterText= document.getElementById("flexCheckChecked2") as HTMLInputElement
+  
+    
+    
+  }
+  
+  clearOptions(){
+    localStorage.removeItem("filterText")
+    window.location.reload()
+  }
 }
 
 

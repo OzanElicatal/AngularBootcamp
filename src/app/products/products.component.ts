@@ -80,10 +80,23 @@ export class ProductsComponent implements OnInit {
     return this.producttemp
   }
 
+  showDetails(product: IProducts) {
+  
+    this.alertifyService.alert(product.name, "Price: " + product.price.toString() + "$    <br> Stock: " + product.stock,
+    () => {
+    });
+            
+    }
+  
+  closeModal() {
+    document.getElementById('modal-1').style.display = 'none';
+    document.body.classList.remove('jw-modal-open');
+  }
+  
 // delete---
   delete(product:IProducts){
  
-      this.alertifyService.confirm(product.name+ " you are about to delete it","ArE you sure?",()=>{
+      this.alertifyService.confirm(product.name+ " you are about to delete it","Are you sure?",()=>{
         this._productservice.deleteProducts(product).subscribe(data=>{})
         
         // this.router.navigate(["/products"])
@@ -152,6 +165,21 @@ export class ProductsComponent implements OnInit {
       this.viewFirst = false;
       this.viewSecond = false;
     }
+  }
+
+  saveOptions(){
+    var search= document.getElementById("productName") as HTMLInputElement
+    console.log(search)
+    localStorage.setItem("filterText",search.value)
+    var filterText= document.getElementById("flexCheckChecked2") as HTMLInputElement
+
+    
+    
+  }
+
+  clearOptions(){
+    localStorage.removeItem("filterText")
+    window.location.reload()
   }
 
   

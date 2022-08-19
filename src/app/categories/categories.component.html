@@ -1,14 +1,19 @@
 <div class="container">
   <div class="row mt-3">
-
-    <div class="col-md-4 offset-md-4 mt-2">
-      <input style="border: 1px solid black;" class="form-control" type="search" placeholder="Search.."
-        aria-label="Search" [(ngModel)]="filterText">
-    </div>
-
     <button type="button" class="btn col-md-4" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
       <i class="fa fa-plus" style="font-size:35px;"></i>
      </button>
+
+     <div class="col-md-4  mt-2">
+      <input style="border: 1px solid black;" class="form-control" type="search" placeholder="Search.."
+        aria-label="Search" id="categoryName" [(ngModel)]="filterText">
+    </div>
+
+    <div class="col-md-4  mt-2">
+      <button type="button"class="btn" (click)="saveOptions()">Save the search</button>
+      <button type="button" class="btn" (click)="clearOptions()">Clear the search</button>
+    </div>
+
   </div>
 </div>
 
@@ -58,11 +63,11 @@
                   data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
 
             <div class="col-4">
-              <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
+              <button class="btn btn-lg" (click)="showDetails(category)"><i class="fa-solid fa-circle-info"></i></button>
             </div>
             <div class="col-4">
-              <button class="btn btn-lg" data-toggle="modal" data-toggle="modal"
-                data-target="#detailModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
+              <button class="btn btn-lg" (click)="showUpdate(category)" data-toggle="modal" data-bs-target="#exampleModal"
+                data-target="#detailModal" data-target="#updateModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
               </button></div>
           </div>
         </div>
@@ -105,6 +110,36 @@
   </div>
 </div>
 
+<!-- update modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Name: </span>
+          <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" id="categoryNameInput">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Description: </span>
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="categoryDescriptionInput">
+        </div>
+        
+        
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="" class="btn btn-primary" (click)="updateCategory()" href="/categories" >Save changes</a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- viewSecond -->
 <div class="container" *ngIf="viewSecond == true">
   <div class="row " >
@@ -112,7 +147,7 @@
     style="max-width: 133rem; max-height: 35rem; margin-right: 2rem;margin-bottom: 1rem; ">
       <div class="row justify-content-center">
         <div class=" col-4">
-          <img src="http://localhost:3030/api/products/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" 
+          <img src="http://localhost:3030/api/categories/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" 
           style="min-height: 15rem; max-height: 15rem;" />
         </div> 
         <div class="col-4 ">
@@ -122,17 +157,17 @@
       <div class="col-4 ">
         <div class="row mb-4">
           <div class="col-4">
-            <button type="button" class="btn btn-lg" data-toggle="modal"
+            <button type="button" class="btn btn-lg" (click)="delete(category)" data-toggle="modal"
               data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
 
-          <div class="col-4">
-            <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
-          </div>
-          <div class="col-4">
-            <button class="btn btn-lg" data-toggle="modal" data-toggle="modal"
-              data-target="#detailModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
-            </button></div>
+        <div class="col-4">
+          <button class="btn btn-lg" (click)="showDetails(category)"><i class="fa-solid fa-circle-info"></i></button>
         </div>
+        <div class="col-4">
+          <button class="btn btn-lg" (click)="showUpdate(category)" data-toggle="modal" data-toggle="modal"
+            data-target="#detailModal" data-target="#updateModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
+          </button></div>
+      </div>
         </div>
 
       </div>
@@ -148,7 +183,7 @@
     style="max-width: 33rem; max-height: 35rem; margin-right: 2rem;margin-bottom: 1rem; ">
       <div class="row justify-content-center">
         <div class=" col-4">
-          <img src="http://localhost:3030/api/products/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" 
+          <img src="http://localhost:3030/api/categories/images/{{category.id}}.jpg" class="img-fluid w-100 rounded" 
           style="min-height: 15rem; max-height: 15rem;" />
         </div> 
         <div class="col-4 text-center">
@@ -158,17 +193,17 @@
       <div class="col-4 ">
         <div class="row mb-4">
           <div class="col-4">
-            <button type="button" class="btn btn-lg" data-toggle="modal"
+            <button type="button" class="btn btn-lg" (click)="delete(category)" data-toggle="modal"
               data-toggle="modal" data-target="#deleteModal"><i class="fa-solid fa-trash"></i></button></div>
 
-          <div class="col-4">
-            <button class="btn btn-lg"><i class="fa-solid fa-circle-info"></i></button>
-          </div>
-          <div class="col-4">
-            <button class="btn btn-lg" data-toggle="modal" data-toggle="modal"
-              data-target="#detailModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
-            </button></div>
+        <div class="col-4">
+          <button class="btn btn-lg" (click)="showDetails(category)"><i class="fa-solid fa-circle-info"></i></button>
         </div>
+        <div class="col-4">
+          <button class="btn btn-lg" (click)="showUpdate(category)" data-toggle="modal" data-toggle="modal"
+            data-target="#detailModal" data-target="#updateModal"><i class="fa-solid fa-trash-can-arrow-up"></i>
+          </button></div>
+      </div>
         </div>
 
       </div>
